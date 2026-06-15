@@ -1,0 +1,421 @@
+{
+  "date": "2026-06-16",
+  "episode": "https://jianjianpanpan.github.io/dailypodcast/episodes/2026-06-16.mp3",
+  "sources": {
+    "en": [
+      {
+        "name": "The Mel Robbins Podcast",
+        "artist": "Mel Robbins",
+        "url": "https://podcasts.apple.com/us/podcast/the-mel-robbins-podcast/id1646101002?uo=4",
+        "summary": "Self-Improvement",
+        "releaseDate": "2026-06-15T04:05:00Z",
+        "genres": [
+          "Self-Improvement",
+          "Podcasts",
+          "Education",
+          "Health & Fitness",
+          "Mental Health"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "The NPR Politics Podcast",
+        "artist": "NPR",
+        "url": "https://podcasts.apple.com/us/podcast/the-npr-politics-podcast/id1057255460?uo=4",
+        "summary": "Politics",
+        "releaseDate": "2026-06-12T20:38:00Z",
+        "genres": [
+          "Politics",
+          "Podcasts",
+          "News",
+          "Daily News"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "This Podcast Will Kill You",
+        "artist": "Exactly Right and iHeartPodcasts",
+        "url": "https://podcasts.apple.com/us/podcast/this-podcast-will-kill-you/id1299915173?uo=4",
+        "summary": "Science",
+        "releaseDate": "2026-06-02T07:01:00Z",
+        "genres": [
+          "Science",
+          "Podcasts",
+          "Health & Fitness"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "The Psychology Podcast",
+        "artist": "iHeartPodcasts",
+        "url": "https://podcasts.apple.com/us/podcast/the-psychology-podcast/id942777522?uo=4",
+        "summary": "Social Sciences",
+        "releaseDate": "2025-12-04T08:00:00Z",
+        "genres": [
+          "Social Sciences",
+          "Podcasts",
+          "Science"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "The Martha Stewart Podcast",
+        "artist": "iHeartPodcasts",
+        "url": "https://podcasts.apple.com/us/podcast/the-martha-stewart-podcast/id1628369888?uo=4",
+        "summary": "Personal Journals",
+        "releaseDate": "2026-06-08T17:25:00Z",
+        "genres": [
+          "Personal Journals",
+          "Podcasts",
+          "Society & Culture",
+          "Arts"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "Pour Minds Podcast",
+        "artist": "The Black Effect Podcast Network and iHeartPodcasts",
+        "url": "https://podcasts.apple.com/us/podcast/pour-minds-podcast/id1438182646?uo=4",
+        "summary": "Comedy",
+        "releaseDate": "2026-06-12T19:57:00Z",
+        "genres": [
+          "Comedy",
+          "Podcasts"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "Death, Sex & Money",
+        "artist": "Slate Podcasts",
+        "url": "https://podcasts.apple.com/us/podcast/death-sex-money/id870688022?uo=4",
+        "summary": "Relationships",
+        "releaseDate": "2026-06-09T07:00:00Z",
+        "genres": [
+          "Relationships",
+          "Podcasts",
+          "Society & Culture",
+          "Health & Fitness",
+          "Sexuality"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "PBD Podcast",
+        "artist": "PBD Podcast",
+        "url": "https://podcasts.apple.com/us/podcast/pbd-podcast/id1526697745?uo=4",
+        "summary": "Business",
+        "releaseDate": "2026-06-12T17:10:00Z",
+        "genres": [
+          "Business",
+          "Podcasts"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "Dear Chelsea",
+        "artist": "iHeartPodcasts",
+        "url": "https://podcasts.apple.com/us/podcast/dear-chelsea/id1563085598?uo=4",
+        "summary": "Comedy",
+        "releaseDate": "2026-06-05T07:05:00Z",
+        "genres": [
+          "Comedy",
+          "Podcasts",
+          "Education",
+          "Self-Improvement"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "American Homicide",
+        "artist": "iHeartPodcasts and Glass Podcasts",
+        "url": "https://podcasts.apple.com/us/podcast/american-homicide/id1772919166?uo=4",
+        "summary": "True Crime",
+        "releaseDate": "2026-03-06T05:00:00Z",
+        "genres": [
+          "True Crime",
+          "Podcasts",
+          "History"
+        ],
+        "sourceMode": "itunes-search"
+      }
+    ],
+    "zh": [
+      {
+        "name": "长点脑子",
+        "artist": "长点脑子播客",
+        "url": "https://podcasts.apple.com/cn/podcast/%E9%95%BF%E7%82%B9%E8%84%91%E5%AD%90/id1678433283?uo=4",
+        "summary": "节目漫谈",
+        "releaseDate": "2026-05-26T05:41:00Z",
+        "genres": [
+          "节目漫谈",
+          "播客",
+          "电视与电影",
+          "艺术",
+          "图书"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "大俗小雅",
+        "artist": "大俗小雅播客",
+        "url": "https://podcasts.apple.com/cn/podcast/%E5%A4%A7%E4%BF%97%E5%B0%8F%E9%9B%85/id1541026151?uo=4",
+        "summary": "爱好",
+        "releaseDate": "2026-06-02T23:00:00Z",
+        "genres": [
+          "爱好",
+          "播客",
+          "休闲",
+          "社会与文化",
+          "情感与人际关系"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "【英语播客】Yeah, Why Not",
+        "artist": "是Ling也是凌",
+        "url": "https://podcasts.apple.com/cn/podcast/%E8%8B%B1%E8%AF%AD%E6%92%AD%E5%AE%A2-yeah-why-not/id1599483558?uo=4",
+        "summary": "个人日记",
+        "releaseDate": "2026-04-15T12:02:00Z",
+        "genres": [
+          "个人日记",
+          "播客",
+          "社会与文化",
+          "情感与人际关系"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "三言两语 | 脱口秀演员闲谈录",
+        "artist": "三言两语播客",
+        "url": "https://podcasts.apple.com/cn/podcast/%E4%B8%89%E8%A8%80%E4%B8%A4%E8%AF%AD-%E8%84%B1%E5%8F%A3%E7%A7%80%E6%BC%94%E5%91%98%E9%97%B2%E8%B0%88%E5%BD%95/id1589571397?uo=4",
+        "summary": "幽默对谈",
+        "releaseDate": "2026-06-14T16:00:00Z",
+        "genres": [
+          "幽默对谈",
+          "播客",
+          "喜剧",
+          "即兴表演"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "读者 官方播客",
+        "artist": "读者",
+        "url": "https://podcasts.apple.com/cn/podcast/%E8%AF%BB%E8%80%85-%E5%AE%98%E6%96%B9%E6%92%AD%E5%AE%A2/id1544750396?uo=4",
+        "summary": "自我完善",
+        "releaseDate": "2026-06-15T12:00:00Z",
+        "genres": [
+          "自我完善",
+          "播客",
+          "教育",
+          "社会与文化",
+          "情感与人际关系"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "霓达播客",
+        "artist": "霓达播台NidaMedia",
+        "url": "https://podcasts.apple.com/cn/podcast/%E9%9C%93%E8%BE%BE%E6%92%AD%E5%AE%A2/id1668626930?uo=4",
+        "summary": "犯罪纪实",
+        "releaseDate": "2026-05-14T13:00:00Z",
+        "genres": [
+          "犯罪纪实",
+          "播客",
+          "休闲"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "双语早餐【英语漫游 英语口语听力每天学 Learning English】",
+        "artist": "喜马拉雅播客",
+        "url": "https://podcasts.apple.com/cn/podcast/%E5%8F%8C%E8%AF%AD%E6%97%A9%E9%A4%90-%E8%8B%B1%E8%AF%AD%E6%BC%AB%E6%B8%B8-%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD%E5%90%AC%E5%8A%9B%E6%AF%8F%E5%A4%A9%E5%AD%A6-learning-english/id1091474627?uo=4",
+        "summary": "语言学习",
+        "releaseDate": "2016-12-12T10:49:00Z",
+        "genres": [
+          "语言学习",
+          "播客",
+          "教育",
+          "社会与文化",
+          "旅行与地方文化"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "人文清华播客：对话清华学者",
+        "artist": "人文清华",
+        "url": "https://podcasts.apple.com/cn/podcast/%E4%BA%BA%E6%96%87%E6%B8%85%E5%8D%8E%E6%92%AD%E5%AE%A2-%E5%AF%B9%E8%AF%9D%E6%B8%85%E5%8D%8E%E5%AD%A6%E8%80%85/id1712419886?uo=4",
+        "summary": "课程",
+        "releaseDate": "2026-06-05T04:32:00Z",
+        "genres": [
+          "课程",
+          "播客",
+          "教育",
+          "社会与文化",
+          "纪实"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "怡楽播客",
+        "artist": "怡楽播客",
+        "url": "https://podcasts.apple.com/cn/podcast/%E6%80%A1%E6%A5%BD%E6%92%AD%E5%AE%A2/id1523249117?uo=4",
+        "summary": "社会与文化",
+        "releaseDate": "2026-06-03T16:00:00Z",
+        "genres": [
+          "社会与文化",
+          "播客",
+          "喜剧",
+          "脱口秀"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "博物志",
+        "artist": "小黄鱼播客",
+        "url": "https://podcasts.apple.com/cn/podcast/%E5%8D%9A%E7%89%A9%E5%BF%97/id1030448996?uo=4",
+        "summary": "社会与文化",
+        "releaseDate": "2026-03-25T23:00:00Z",
+        "genres": [
+          "社会与文化",
+          "播客"
+        ],
+        "sourceMode": "itunes-search"
+      }
+    ],
+    "ja": [
+      {
+        "name": "ポッドキャストを初めて聴いて「いいな」と思ったお姉さんがまさか元セクシー女優の矢埜",
+        "artist": "TBS RADIO",
+        "url": "https://podcasts.apple.com/jp/podcast/%E3%83%9D%E3%83%83%E3%83%89%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E3%82%81%E3%81%A6%E8%81%B4%E3%81%84%E3%81%A6-%E3%81%84%E3%81%84%E3%81%AA-%E3%81%A8%E6%80%9D%E3%81%A3%E3%81%9F%E3%81%8A%E5%A7%89%E3%81%95%E3%82%93%E3%81%8C%E3%81%BE%E3%81%95%E3%81%8B%E5%85%83%E3%82%BB%E3%82%AF%E3%82%B7%E3%83%BC%E5%A5%B3%E5%84%AA%E3%81%AE%E7%9F%A2%E5%9F%9C/id1767294111?uo=4",
+        "summary": "健康／フィットネス",
+        "releaseDate": "2026-06-05T11:00:00Z",
+        "genres": [
+          "健康／フィットネス",
+          "ポッドキャスト"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "誰でもできる！ポッドキャストの作り方",
+        "artist": "でんすけ@音声メディアプロデューサー",
+        "url": "https://podcasts.apple.com/jp/podcast/%E8%AA%B0%E3%81%A7%E3%82%82%E3%81%A7%E3%81%8D%E3%82%8B-%E3%83%9D%E3%83%83%E3%83%89%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%88%E3%81%AE%E4%BD%9C%E3%82%8A%E6%96%B9/id1699924537?uo=4",
+        "summary": "マーケティング",
+        "releaseDate": "2024-12-29T01:51:00Z",
+        "genres": [
+          "マーケティング",
+          "ポッドキャスト",
+          "ビジネス"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "ポッドキャストのはじめ方",
+        "artist": "ハタモト",
+        "url": "https://podcasts.apple.com/jp/podcast/%E3%83%9D%E3%83%83%E3%83%89%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%88%E3%81%AE%E3%81%AF%E3%81%98%E3%82%81%E6%96%B9/id1572698527?uo=4",
+        "summary": "テクノロジー",
+        "releaseDate": "2023-08-07T23:49:00Z",
+        "genres": [
+          "テクノロジー",
+          "ポッドキャスト"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "ポッドキャストの配信で人生が変わる",
+        "artist": "株式会社こえラボ 岡田正宏",
+        "url": "https://podcasts.apple.com/jp/podcast/%E3%83%9D%E3%83%83%E3%83%89%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%88%E3%81%AE%E9%85%8D%E4%BF%A1%E3%81%A7%E4%BA%BA%E7%94%9F%E3%81%8C%E5%A4%89%E3%82%8F%E3%82%8B/id1256406473?uo=4",
+        "summary": "マーケティング",
+        "releaseDate": "2026-06-10T17:00:00Z",
+        "genres": [
+          "マーケティング",
+          "ポッドキャスト",
+          "ビジネス",
+          "教育",
+          "ハウツー"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "ポッドキャスト（岡田康太）",
+        "artist": "ニッポン放送（岡田康太）",
+        "url": "https://podcasts.apple.com/jp/podcast/%E3%83%9D%E3%83%83%E3%83%89%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%88-%E5%B2%A1%E7%94%B0%E5%BA%B7%E5%A4%AA/id1681446687?uo=4",
+        "summary": "コメディ",
+        "releaseDate": "2024-10-02T03:00:00Z",
+        "genres": [
+          "コメディ",
+          "ポッドキャスト"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "ポッドキャスト研究室",
+        "artist": "レン/ウシワカ",
+        "url": "https://podcasts.apple.com/jp/podcast/%E3%83%9D%E3%83%83%E3%83%89%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%88%E7%A0%94%E7%A9%B6%E5%AE%A4/id1865198033?uo=4",
+        "summary": "マーケティング",
+        "releaseDate": "2026-06-02T21:00:00Z",
+        "genres": [
+          "マーケティング",
+          "ポッドキャスト",
+          "ビジネス"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "で、売上になるんですか？～ポッドキャストとマーケの話～　#うりなる",
+        "artist": "オトバンク/PitPa",
+        "url": "https://podcasts.apple.com/jp/podcast/%E3%81%A7-%E5%A3%B2%E4%B8%8A%E3%81%AB%E3%81%AA%E3%82%8B%E3%82%93%E3%81%A7%E3%81%99%E3%81%8B-%E3%83%9D%E3%83%83%E3%83%89%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%88%E3%81%A8%E3%83%9E%E3%83%BC%E3%82%B1%E3%81%AE%E8%A9%B1-%E3%81%86%E3%82%8A%E3%81%AA%E3%82%8B/id1773999564?uo=4",
+        "summary": "マーケティング",
+        "releaseDate": "2026-06-02T20:00:00Z",
+        "genres": [
+          "マーケティング",
+          "ポッドキャスト",
+          "ビジネス",
+          "ニュース",
+          "ニュース解説"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "ポッドキャストが出来るまで",
+        "artist": "PitPa",
+        "url": "https://podcasts.apple.com/jp/podcast/%E3%83%9D%E3%83%83%E3%83%89%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%88%E3%81%8C%E5%87%BA%E6%9D%A5%E3%82%8B%E3%81%BE%E3%81%A7/id1559851243?uo=4",
+        "summary": "テクノロジー",
+        "releaseDate": "2022-12-29T10:48:00Z",
+        "genres": [
+          "テクノロジー",
+          "ポッドキャスト",
+          "教育"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "ポッドキャストが出来るまで シーズン２",
+        "artist": "knock'x Media（ノックス メディア）",
+        "url": "https://podcasts.apple.com/jp/podcast/%E3%83%9D%E3%83%83%E3%83%89%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%88%E3%81%8C%E5%87%BA%E6%9D%A5%E3%82%8B%E3%81%BE%E3%81%A7-%E3%82%B7%E3%83%BC%E3%82%BA%E3%83%B3%EF%BC%92/id1665847883?uo=4",
+        "summary": "マーケティング",
+        "releaseDate": "2026-05-02T13:14:00Z",
+        "genres": [
+          "マーケティング",
+          "ポッドキャスト",
+          "ビジネス"
+        ],
+        "sourceMode": "itunes-search"
+      },
+      {
+        "name": "小泉進次郎のポッドキャスト",
+        "artist": "小泉進次郎",
+        "url": "https://podcasts.apple.com/jp/podcast/%E5%B0%8F%E6%B3%89%E9%80%B2%E6%AC%A1%E9%83%8E%E3%81%AE%E3%83%9D%E3%83%83%E3%83%89%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%88/id1813805872?uo=4",
+        "summary": "政治",
+        "releaseDate": "2026-05-20T23:02:00Z",
+        "genres": [
+          "政治",
+          "ポッドキャスト",
+          "ニュース"
+        ],
+        "sourceMode": "itunes-search"
+      }
+    ]
+  },
+  "note": "Sources are Apple Podcasts public chart metadata where available; fallback entries are marked by their generic Apple chart URLs."
+}
