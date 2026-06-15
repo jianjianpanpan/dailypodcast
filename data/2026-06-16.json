@@ -16,7 +16,11 @@
           "Health & Fitness",
           "Mental Health"
         ],
-        "sourceMode": "itunes-search"
+        "feedUrl": "https://feeds.simplecast.com/UCwaTX1J",
+        "sourceMode": "itunes-search",
+        "latestEpisodeTitle": "7 Things to Tell Yourself Every Night for More Happiness and Positivity",
+        "latestEpisodeSummary": "This episode gives you a reset you can use tonight. In today’s solo episode, Mel shows you how to end your day right, with 7 simple sentences that reset your mindset and rewire...",
+        "latestEpisodeDate": "Mon, 15 Jun 2026 04:05:00 +0000"
       },
       {
         "name": "The NPR Politics Podcast",
@@ -30,7 +34,11 @@
           "News",
           "Daily News"
         ],
-        "sourceMode": "itunes-search"
+        "feedUrl": "https://feeds.npr.org/510310/podcast.xml",
+        "sourceMode": "itunes-search",
+        "latestEpisodeTitle": "What to make of Trump’s mixed-messages on the Iran war",
+        "latestEpisodeSummary": "President Trump sent a lot of mixed messages on the war in Iran this week, starting with imminent peace on Monday, threatening to take control of Kharg Island on Thursday,...",
+        "latestEpisodeDate": "Fri, 12 Jun 2026 20:38:32 +0000"
       },
       {
         "name": "This Podcast Will Kill You",
@@ -43,100 +51,11 @@
           "Podcasts",
           "Health & Fitness"
         ],
-        "sourceMode": "itunes-search"
-      },
-      {
-        "name": "The Psychology Podcast",
-        "artist": "iHeartPodcasts",
-        "url": "https://podcasts.apple.com/us/podcast/the-psychology-podcast/id942777522?uo=4",
-        "summary": "Social Sciences",
-        "releaseDate": "2025-12-04T08:00:00Z",
-        "genres": [
-          "Social Sciences",
-          "Podcasts",
-          "Science"
-        ],
-        "sourceMode": "itunes-search"
-      },
-      {
-        "name": "The Martha Stewart Podcast",
-        "artist": "iHeartPodcasts",
-        "url": "https://podcasts.apple.com/us/podcast/the-martha-stewart-podcast/id1628369888?uo=4",
-        "summary": "Personal Journals",
-        "releaseDate": "2026-06-08T17:25:00Z",
-        "genres": [
-          "Personal Journals",
-          "Podcasts",
-          "Society & Culture",
-          "Arts"
-        ],
-        "sourceMode": "itunes-search"
-      },
-      {
-        "name": "Pour Minds Podcast",
-        "artist": "The Black Effect Podcast Network and iHeartPodcasts",
-        "url": "https://podcasts.apple.com/us/podcast/pour-minds-podcast/id1438182646?uo=4",
-        "summary": "Comedy",
-        "releaseDate": "2026-06-12T19:57:00Z",
-        "genres": [
-          "Comedy",
-          "Podcasts"
-        ],
-        "sourceMode": "itunes-search"
-      },
-      {
-        "name": "Death, Sex & Money",
-        "artist": "Slate Podcasts",
-        "url": "https://podcasts.apple.com/us/podcast/death-sex-money/id870688022?uo=4",
-        "summary": "Relationships",
-        "releaseDate": "2026-06-09T07:00:00Z",
-        "genres": [
-          "Relationships",
-          "Podcasts",
-          "Society & Culture",
-          "Health & Fitness",
-          "Sexuality"
-        ],
-        "sourceMode": "itunes-search"
-      },
-      {
-        "name": "PBD Podcast",
-        "artist": "PBD Podcast",
-        "url": "https://podcasts.apple.com/us/podcast/pbd-podcast/id1526697745?uo=4",
-        "summary": "Business",
-        "releaseDate": "2026-06-12T17:10:00Z",
-        "genres": [
-          "Business",
-          "Podcasts"
-        ],
-        "sourceMode": "itunes-search"
-      },
-      {
-        "name": "Dear Chelsea",
-        "artist": "iHeartPodcasts",
-        "url": "https://podcasts.apple.com/us/podcast/dear-chelsea/id1563085598?uo=4",
-        "summary": "Comedy",
-        "releaseDate": "2026-06-05T07:05:00Z",
-        "genres": [
-          "Comedy",
-          "Podcasts",
-          "Education",
-          "Self-Improvement"
-        ],
-        "sourceMode": "itunes-search"
-      },
-      {
-        "name": "American Homicide",
-        "artist": "iHeartPodcasts and Glass Podcasts",
-        "url": "https://podcasts.apple.com/us/podcast/american-homicide/id1772919166?uo=4",
-        "summary": "True Crime",
-        "releaseDate": "2026-03-06T05:00:00Z",
-        "genres": [
-          "True Crime",
-          "Podcasts",
-          "History"
-        ],
-        "sourceMode": "itunes-search"
+        "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/e0709a39-232b-4483-8e4f-b24c0111ae2c/64b4c224-562e-4b2f-9f31-b24c0111ae53/podcast.rss",
+        "sourceMode": "itunes-search",
+        "latestEpisodeTitle": "Ep 212 Burns Part 1: The first million or so years",
+        "latestEpisodeSummary": "Burns have been a part of the human experience since our hominin relatives began controlling fire 1.5 million years ago. Until very recently, we’ve been limited in our ability to...",
+        "latestEpisodeDate": "Tue, 09 Jun 2026 07:01:00 +0000"
       }
     ],
     "zh": [
@@ -153,7 +72,11 @@
           "艺术",
           "图书"
         ],
-        "sourceMode": "itunes-search"
+        "feedUrl": "https://www.ximalaya.com/album/75057160.xml",
+        "sourceMode": "itunes-search",
+        "latestEpisodeTitle": "油炸绿番茄：心会碎，但依然会跳动",
+        "latestEpisodeSummary": "长点脑子重启更新啦！友友们久等了。 今天我们来聊《油炸绿番茄》。这部电影刻画了出离传统的女性和被世俗禁锢的女性，也展现了女性活出自我的心理过程与积极行动。 电影当中有四位女性，其中两位更年长一些的叫做艾姬和露丝，她们生活在美国一战二战左右的时间，也是黑人解放运动之前，片中也出现了很多白人和黑人奴隶一起生活的场景。...",
+        "latestEpisodeDate": "Tue, 26 May 2026 05:41:24 GMT"
       },
       {
         "name": "大俗小雅",
@@ -168,7 +91,11 @@
           "社会与文化",
           "情感与人际关系"
         ],
-        "sourceMode": "itunes-search"
+        "feedUrl": "http://www.ximalaya.com/album/43880787.xml",
+        "sourceMode": "itunes-search",
+        "latestEpisodeTitle": "284 迷恋夏天：樱桃西瓜，森林山庄，晚风球场和多巴胺的一切",
+        "latestEpisodeSummary": "夏天不是季节，是一连串被唤醒的感官。 西瓜、骤雨、球场、晚风，和一点点重新开始的勇气。 这一期，我们想把夏天变成一种可以被听见、闻见、尝见的东西。 从西瓜芯芯翻砂的声音，到大雨前夕泥土、青草与水汽混合的气味；从盒马水果列表里的香蒲桃、龙宫果、甜心脆青提，到屋顶日落、气泡酒、绿色天丝床品和夏日晚风。夏天不是一个季节，而是一种感官被重新打开的状态。...",
+        "latestEpisodeDate": "Tue, 09 Jun 2026 23:00:00 GMT"
       },
       {
         "name": "【英语播客】Yeah, Why Not",
@@ -182,105 +109,11 @@
           "社会与文化",
           "情感与人际关系"
         ],
-        "sourceMode": "itunes-search"
-      },
-      {
-        "name": "三言两语 | 脱口秀演员闲谈录",
-        "artist": "三言两语播客",
-        "url": "https://podcasts.apple.com/cn/podcast/%E4%B8%89%E8%A8%80%E4%B8%A4%E8%AF%AD-%E8%84%B1%E5%8F%A3%E7%A7%80%E6%BC%94%E5%91%98%E9%97%B2%E8%B0%88%E5%BD%95/id1589571397?uo=4",
-        "summary": "幽默对谈",
-        "releaseDate": "2026-06-14T16:00:00Z",
-        "genres": [
-          "幽默对谈",
-          "播客",
-          "喜剧",
-          "即兴表演"
-        ],
-        "sourceMode": "itunes-search"
-      },
-      {
-        "name": "读者 官方播客",
-        "artist": "读者",
-        "url": "https://podcasts.apple.com/cn/podcast/%E8%AF%BB%E8%80%85-%E5%AE%98%E6%96%B9%E6%92%AD%E5%AE%A2/id1544750396?uo=4",
-        "summary": "自我完善",
-        "releaseDate": "2026-06-15T12:00:00Z",
-        "genres": [
-          "自我完善",
-          "播客",
-          "教育",
-          "社会与文化",
-          "情感与人际关系"
-        ],
-        "sourceMode": "itunes-search"
-      },
-      {
-        "name": "霓达播客",
-        "artist": "霓达播台NidaMedia",
-        "url": "https://podcasts.apple.com/cn/podcast/%E9%9C%93%E8%BE%BE%E6%92%AD%E5%AE%A2/id1668626930?uo=4",
-        "summary": "犯罪纪实",
-        "releaseDate": "2026-05-14T13:00:00Z",
-        "genres": [
-          "犯罪纪实",
-          "播客",
-          "休闲"
-        ],
-        "sourceMode": "itunes-search"
-      },
-      {
-        "name": "双语早餐【英语漫游 英语口语听力每天学 Learning English】",
-        "artist": "喜马拉雅播客",
-        "url": "https://podcasts.apple.com/cn/podcast/%E5%8F%8C%E8%AF%AD%E6%97%A9%E9%A4%90-%E8%8B%B1%E8%AF%AD%E6%BC%AB%E6%B8%B8-%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD%E5%90%AC%E5%8A%9B%E6%AF%8F%E5%A4%A9%E5%AD%A6-learning-english/id1091474627?uo=4",
-        "summary": "语言学习",
-        "releaseDate": "2016-12-12T10:49:00Z",
-        "genres": [
-          "语言学习",
-          "播客",
-          "教育",
-          "社会与文化",
-          "旅行与地方文化"
-        ],
-        "sourceMode": "itunes-search"
-      },
-      {
-        "name": "人文清华播客：对话清华学者",
-        "artist": "人文清华",
-        "url": "https://podcasts.apple.com/cn/podcast/%E4%BA%BA%E6%96%87%E6%B8%85%E5%8D%8E%E6%92%AD%E5%AE%A2-%E5%AF%B9%E8%AF%9D%E6%B8%85%E5%8D%8E%E5%AD%A6%E8%80%85/id1712419886?uo=4",
-        "summary": "课程",
-        "releaseDate": "2026-06-05T04:32:00Z",
-        "genres": [
-          "课程",
-          "播客",
-          "教育",
-          "社会与文化",
-          "纪实"
-        ],
-        "sourceMode": "itunes-search"
-      },
-      {
-        "name": "怡楽播客",
-        "artist": "怡楽播客",
-        "url": "https://podcasts.apple.com/cn/podcast/%E6%80%A1%E6%A5%BD%E6%92%AD%E5%AE%A2/id1523249117?uo=4",
-        "summary": "社会与文化",
-        "releaseDate": "2026-06-03T16:00:00Z",
-        "genres": [
-          "社会与文化",
-          "播客",
-          "喜剧",
-          "脱口秀"
-        ],
-        "sourceMode": "itunes-search"
-      },
-      {
-        "name": "博物志",
-        "artist": "小黄鱼播客",
-        "url": "https://podcasts.apple.com/cn/podcast/%E5%8D%9A%E7%89%A9%E5%BF%97/id1030448996?uo=4",
-        "summary": "社会与文化",
-        "releaseDate": "2026-03-25T23:00:00Z",
-        "genres": [
-          "社会与文化",
-          "播客"
-        ],
-        "sourceMode": "itunes-search"
+        "feedUrl": "http://www.ximalaya.com/album/53253747.xml",
+        "sourceMode": "itunes-search",
+        "latestEpisodeTitle": "Vol.47 | Too Subtle for Our Own Good",
+        "latestEpisodeSummary": "想加入YWN播客社群的小伙伴们可以加我的vx：Yeah_WhyNot，我邀请进群哦~我会在群里分享每一期的节目文稿，以及每周正在进行的口语俱乐部相关活动的信息 这一期想聊一个我觉得很多人都会默默经历的问题：我们总希望被理解，却又不太会直接表达自己。关于关系、沟通，还有很多藏在情绪里的疲惫感。",
+        "latestEpisodeDate": "Tue, 12 May 2026 08:31:30 GMT"
       }
     ],
     "ja": [
@@ -294,7 +127,11 @@
           "健康／フィットネス",
           "ポッドキャスト"
         ],
-        "sourceMode": "itunes-search"
+        "feedUrl": "https://feeds.megaphone.fm/TBS1444818315",
+        "sourceMode": "itunes-search",
+        "latestEpisodeTitle": "#92 男性の色気はどこから？",
+        "latestEpisodeSummary": "OPは、台風のなか奄美大島でお仕事してきたお話から！ コーナーは『愛茉が全部教えてあげる』！今回は「色気のある男性になりたい！」という方からの質問です。 Learn more about your ad choices. Visit podcastchoices.com/adchoices",
+        "latestEpisodeDate": "Fri, 12 Jun 2026 11:00:00 -0000"
       },
       {
         "name": "誰でもできる！ポッドキャストの作り方",
@@ -307,7 +144,11 @@
           "ポッドキャスト",
           "ビジネス"
         ],
-        "sourceMode": "itunes-search"
+        "feedUrl": "https://anchor.fm/s/fde71fc8/podcast/rss",
+        "sourceMode": "itunes-search",
+        "latestEpisodeTitle": "S5-33｜音声配信やってみたいと思ってる人へメッセージ！",
+        "latestEpisodeSummary": "やっぱり、私も音声配信やってみたい！」と思える一言は？ あなたの「普通」は だれかの「特別」 実は、あなたの声と経験には、誰かの人生を変えるヒントが、必ず隠されているんです！ 音声配信、興味はあるけど…「私には無理かな…」って、諦めかけていませんか？ まずは、あなたの「声」を、世界に響かせてみませんか？ 私たちは誰もが、独自の物語を持っています。...",
+        "latestEpisodeDate": "Sun, 29 Dec 2024 01:51:48 GMT"
       },
       {
         "name": "ポッドキャストのはじめ方",
@@ -319,101 +160,11 @@
           "テクノロジー",
           "ポッドキャスト"
         ],
-        "sourceMode": "itunes-search"
-      },
-      {
-        "name": "ポッドキャストの配信で人生が変わる",
-        "artist": "株式会社こえラボ 岡田正宏",
-        "url": "https://podcasts.apple.com/jp/podcast/%E3%83%9D%E3%83%83%E3%83%89%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%88%E3%81%AE%E9%85%8D%E4%BF%A1%E3%81%A7%E4%BA%BA%E7%94%9F%E3%81%8C%E5%A4%89%E3%82%8F%E3%82%8B/id1256406473?uo=4",
-        "summary": "マーケティング",
-        "releaseDate": "2026-06-10T17:00:00Z",
-        "genres": [
-          "マーケティング",
-          "ポッドキャスト",
-          "ビジネス",
-          "教育",
-          "ハウツー"
-        ],
-        "sourceMode": "itunes-search"
-      },
-      {
-        "name": "ポッドキャスト（岡田康太）",
-        "artist": "ニッポン放送（岡田康太）",
-        "url": "https://podcasts.apple.com/jp/podcast/%E3%83%9D%E3%83%83%E3%83%89%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%88-%E5%B2%A1%E7%94%B0%E5%BA%B7%E5%A4%AA/id1681446687?uo=4",
-        "summary": "コメディ",
-        "releaseDate": "2024-10-02T03:00:00Z",
-        "genres": [
-          "コメディ",
-          "ポッドキャスト"
-        ],
-        "sourceMode": "itunes-search"
-      },
-      {
-        "name": "ポッドキャスト研究室",
-        "artist": "レン/ウシワカ",
-        "url": "https://podcasts.apple.com/jp/podcast/%E3%83%9D%E3%83%83%E3%83%89%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%88%E7%A0%94%E7%A9%B6%E5%AE%A4/id1865198033?uo=4",
-        "summary": "マーケティング",
-        "releaseDate": "2026-06-02T21:00:00Z",
-        "genres": [
-          "マーケティング",
-          "ポッドキャスト",
-          "ビジネス"
-        ],
-        "sourceMode": "itunes-search"
-      },
-      {
-        "name": "で、売上になるんですか？～ポッドキャストとマーケの話～　#うりなる",
-        "artist": "オトバンク/PitPa",
-        "url": "https://podcasts.apple.com/jp/podcast/%E3%81%A7-%E5%A3%B2%E4%B8%8A%E3%81%AB%E3%81%AA%E3%82%8B%E3%82%93%E3%81%A7%E3%81%99%E3%81%8B-%E3%83%9D%E3%83%83%E3%83%89%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%88%E3%81%A8%E3%83%9E%E3%83%BC%E3%82%B1%E3%81%AE%E8%A9%B1-%E3%81%86%E3%82%8A%E3%81%AA%E3%82%8B/id1773999564?uo=4",
-        "summary": "マーケティング",
-        "releaseDate": "2026-06-02T20:00:00Z",
-        "genres": [
-          "マーケティング",
-          "ポッドキャスト",
-          "ビジネス",
-          "ニュース",
-          "ニュース解説"
-        ],
-        "sourceMode": "itunes-search"
-      },
-      {
-        "name": "ポッドキャストが出来るまで",
-        "artist": "PitPa",
-        "url": "https://podcasts.apple.com/jp/podcast/%E3%83%9D%E3%83%83%E3%83%89%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%88%E3%81%8C%E5%87%BA%E6%9D%A5%E3%82%8B%E3%81%BE%E3%81%A7/id1559851243?uo=4",
-        "summary": "テクノロジー",
-        "releaseDate": "2022-12-29T10:48:00Z",
-        "genres": [
-          "テクノロジー",
-          "ポッドキャスト",
-          "教育"
-        ],
-        "sourceMode": "itunes-search"
-      },
-      {
-        "name": "ポッドキャストが出来るまで シーズン２",
-        "artist": "knock'x Media（ノックス メディア）",
-        "url": "https://podcasts.apple.com/jp/podcast/%E3%83%9D%E3%83%83%E3%83%89%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%88%E3%81%8C%E5%87%BA%E6%9D%A5%E3%82%8B%E3%81%BE%E3%81%A7-%E3%82%B7%E3%83%BC%E3%82%BA%E3%83%B3%EF%BC%92/id1665847883?uo=4",
-        "summary": "マーケティング",
-        "releaseDate": "2026-05-02T13:14:00Z",
-        "genres": [
-          "マーケティング",
-          "ポッドキャスト",
-          "ビジネス"
-        ],
-        "sourceMode": "itunes-search"
-      },
-      {
-        "name": "小泉進次郎のポッドキャスト",
-        "artist": "小泉進次郎",
-        "url": "https://podcasts.apple.com/jp/podcast/%E5%B0%8F%E6%B3%89%E9%80%B2%E6%AC%A1%E9%83%8E%E3%81%AE%E3%83%9D%E3%83%83%E3%83%89%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%88/id1813805872?uo=4",
-        "summary": "政治",
-        "releaseDate": "2026-05-20T23:02:00Z",
-        "genres": [
-          "政治",
-          "ポッドキャスト",
-          "ニュース"
-        ],
-        "sourceMode": "itunes-search"
+        "feedUrl": "https://anchor.fm/s/5fd050d4/podcast/rss",
+        "sourceMode": "itunes-search",
+        "latestEpisodeTitle": "新しいポッドキャストの始め方【VideoCast】Anchorからの移行も簡単、国産ホスティングサービスLISTENなら複数番組を１か所で管理できる #31",
+        "latestEpisodeSummary": "複数のポッドキャスト番組を一括管理できるポッドキャストホスティングサービスLISTENに移行する引っ越しツールについて映像付きで解説。 映像は https://open.spotify.com/episode/7z5fNweVMappFRovvP4rtb?si=3Qji4lEVSLChT4nsr4kIMQ...",
+        "latestEpisodeDate": "Mon, 07 Aug 2023 23:49:41 GMT"
       }
     ]
   },
