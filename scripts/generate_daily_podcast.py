@@ -4,6 +4,8 @@ import datetime as dt
 import html
 import json
 import re
+import shutil
+import subprocess
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -33,6 +35,33 @@ VOICES = {
 }
 
 ITEMS_PER_LANGUAGE = 3
+WUXI_LATITUDE = 31.4912
+WUXI_LONGITUDE = 120.3119
+
+CHINESE_WEEKDAYS = "一二三四五六日"
+WEATHER_CODES_ZH = {
+    0: "晴",
+    1: "大部晴朗",
+    2: "局部多云",
+    3: "阴",
+    45: "有雾",
+    48: "有雾凇",
+    51: "小毛毛雨",
+    53: "毛毛雨",
+    55: "较强毛毛雨",
+    61: "小雨",
+    63: "中雨",
+    65: "大雨",
+    71: "小雪",
+    73: "中雪",
+    75: "大雪",
+    80: "短时小阵雨",
+    81: "阵雨",
+    82: "强阵雨",
+    95: "雷雨",
+    96: "雷雨伴小冰雹",
+    99: "雷雨伴冰雹",
+}
 
 CHARTS = {
     "en": {
@@ -87,6 +116,11 @@ def today_shanghai() -> dt.date:
     return (dt.datetime.utcnow() + dt.timedelta(hours=8)).date()
 
 
+def date_intro(date: dt.date) -> str:
+    weekday = CHINESE_WEEKDAYS[date.weekday()]
+    return f"今天是 {date.month} 月 {date.day} 日，星期{weekday}。"
+
+
 def fetch_json(url: str, timeout: int = 20) -> dict:
     req = urllib.request.Request(
         url,
@@ -100,6 +134,35 @@ def fetch_json(url: str, timeout: int = 20) -> dict:
     if not body.strip():
         raise ValueError("empty response")
     return json.loads(body.decode("utf-8"))
+
+
+def fetch_wuxi_weather() -> dict:
+    query = urllib.parse.urlencode(
+        {
+            "latitude": WUXI_LATITUDE,
+            "longitude": WUXI_LONGITUDE,
+            "current": "temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,wind_speed_10m",
+            "timezone": "Asia/Shanghai",
+        }
+    )
+    return fetch_json(f"https://api.open-meteo.com/v1/forecast?{query}")
+
+
+def weather_intro() -> str:
+    try:
+        current = fetch_wuxi_weather().get("current", {})
+        temp = current.get("temperature_2m")
+        feels = current.get("apparent_temperature")
+        humidity = current.get("relative_humidity_2m")
+        wind = current.get("wind_speed_10m")
+        code = current.get("weather_code")
+        condition = WEATHER_CODES_ZH.get(code, "天气情况待确认")
+        return (
+            f"无锡现在{condition}，气温约 {temp:.0f} 度，体感约 {feels:.0f} 度，"
+            f"湿度 {humidity:.0f}%，风速约 {wind:.0f} 公里每小时。"
+        )
+    except Exception:
+        return "无锡天气暂时没有取到实时数据，出门前可以再看一眼本地天气。"
 
 
 def normalize_search_item(item: dict) -> dict:
@@ -173,7 +236,7 @@ def enrich_latest_episode(item: dict) -> dict:
         return item
     try:
         req = urllib.request.Request(feed_url, headers={"User-Agent": "daily-podcast-bot/1.0"})
-        with urllib.request.urlopen(req, timeout=20) as response:
+        with urllib.request.urlopen(req, timeout=8) as response:
             root = ET.fromstring(response.read())
         channel = root.find("channel")
         episode = channel.find("item") if channel is not None else root.find(".//item")
@@ -198,80 +261,83 @@ def trim_and_enrich(items: list[dict]) -> list[dict]:
     return [enrich_latest_episode(item) for item in items[:ITEMS_PER_LANGUAGE]]
 
 
-def content_hint(lang: str, item: dict) -> str:
+def topic_hint(lang: str, item: dict) -> str:
     genre = ", ".join(item.get("genres") or [item.get("summary", "Podcast")])
     episode = item.get("latestEpisodeTitle", "")
     summary = item.get("latestEpisodeSummary", "")
-    release = item.get("latestEpisodeDate") or item.get("releaseDate", "")
     if lang == "en":
-        parts = [f"Public metadata places it around {genre}."]
+        topic = episode or item.get("summary") or genre
+        parts = [f"The show is called {item['name']}, and the visible topic today is: {topic}."]
         if episode:
-            parts.append(f"The latest visible episode is titled {episode}.")
+            parts.append(f"That title suggests a conversation about {episode}.")
         if summary:
-            parts.append(f"The public feed summary points toward this angle: {summary}")
-        if release:
-            parts.append(f"The visible update time is {release}.")
+            parts.append(f"The public feed summary adds this clue: {summary}")
+        parts.append(f"The broader lane is {genre}.")
         return " ".join(parts)
     if lang == "zh":
-        parts = [f"公开元数据里的类型线索是：{genre}。"]
+        topic = episode or item.get("summary") or genre
+        parts = [f"这个播客叫《{item['name']}》，今天能看到的话题线索是：{topic}。"]
         if episode:
-            parts.append(f"最近可见单集标题是《{episode}》。")
+            parts.append(f"从标题看，它讨论的不是一个孤立信息点，而是“{episode}”背后的经验和判断。")
         if summary:
-            parts.append(f"公开 RSS 摘要透露的切入点是：{summary}")
-        if release:
-            parts.append(f"可见更新时间是 {release}。")
+            parts.append(f"公开摘要给出的切入点是：{summary}")
+        parts.append(f"它大致落在 {genre} 这个方向。")
         return "".join(parts)
-    parts = [f"公開メタデータ上のジャンルは {genre} です。"]
+    topic = episode or item.get("summary") or genre
+    parts = [f"このポッドキャストは「{item['name']}」。見えている話題は「{topic}」です。"]
     if episode:
-        parts.append(f"確認できる最新エピソードのタイトルは「{episode}」です。")
+        parts.append(f"タイトルから見ると、「{episode}」について考える回だと言えます。")
     if summary:
-        parts.append(f"公開フィードの概要から見る論点は、{summary}")
-    if release:
-        parts.append(f"確認できる更新日は {release} です。")
+        parts.append(f"公開フィードの概要では、{summary}")
+    parts.append(f"大きなジャンルは {genre} です。")
     return "".join(parts)
 
 
 def dialogue_for_item(lang: str, rank: int, item: dict) -> list[tuple[str, str]]:
     name = item["name"]
     artist = item["artist"]
-    hint = content_hint(lang, item)
+    hint = topic_hint(lang, item)
     if lang == "en":
         return [
-            ("a", f"Pick {rank}: {name}, from {artist}. {hint}"),
-            ("b", "What interests me is not only the topic, but the promise the show is making. A podcast has to earn your attention slowly. If the premise is clear in the first few minutes, it becomes much easier to stay with it."),
-            ("a", "I partly agree, but I also think a strong premise can become a trap. Some shows are too optimized around a neat category. The better question is whether the host can keep finding tension inside the subject."),
-            ("b", "Exactly. My listening test would be: does this episode leave me with a sharper question than the one I started with? If yes, it is worth a full listen."),
+            ("a", f"First, let's talk about {name}, from {artist}. {hint}"),
+            ("b", "What I like about that premise is that it gives us a doorway into something larger. At thirty-five, you start to notice that the useful conversations are rarely just about the headline. They are about habits, incentives, memory, status, or the way people make choices under pressure."),
+            ("a", "Right, and I would push it a little further. A good podcast topic should help you test your own assumptions. My listening test is simple: does it give us one sharper way to talk about the subject tomorrow?"),
         ]
     if lang == "zh":
         return [
-            ("a", f"第 {rank} 个节目是《{name}》，发布方是 {artist}。{hint}"),
-            ("b", "我关心的是它为什么值得被听。播客不是标题党，真正留住人的往往是主持人能不能把一个普通话题讲出新的问题。"),
-            ("a", "但我会稍微保留一点。很多节目光有问题意识还不够，如果对谈没有节奏，信息没有层次，听众很快会走神。"),
-            ("b", "所以我的判断标准是：听完十分钟，我是不是更想继续追问？如果答案是，那它就不只是一个榜单条目，而是值得放进今天的收听队列。"),
+            ("a", f"先聊《{name}》，发布方是 {artist}。{hint}"),
+            ("b", "我喜欢从这种题目里看一个更大的问题：它表面上是在聊一个节目或者一个事件，但真正吸引人的，往往是背后的生活经验、社会情绪，或者一代人正在形成的新常识。"),
+            ("a", "对，而且三十五岁以后再听播客，我会更在意它有没有判断力。不是观点越猛越好，而是它能不能把复杂事情拆开，让你听完之后多一个角度，而不是只多知道一个标题。"),
         ]
     return [
-        ("a", f"{rank} 本目は「{name}」、配信元は {artist} です。{hint}"),
-        ("b", "私が気になるのは、テーマそのものよりも、その番組がどんな問いを立てているかです。良いポッドキャストは、情報を並べるだけではなく、考える余白を残します。"),
-        ("a", "ただ、問いが良くても話し方が単調だと続きません。声の距離感、会話のテンポ、そして話題を深める順番がかなり大事です。"),
-        ("b", "そうですね。最初の十分で、もっと聞きたいと思える問いが増えるかどうか。そこが今日のおすすめとして見るポイントです。"),
+        ("a", f"まず「{name}」です。配信元は {artist}。{hint}"),
+        ("b", "このテーマで面白いのは、単なる情報ではなく、その奥にある価値観が見えてくるところだと思います。三十五歳くらいになると、話題そのものよりも、人がなぜそう考えるのかに興味が移ってきます。"),
+        ("a", "そうですね。ただ、雰囲気だけで深そうに聞こえる番組もあります。大事なのは、具体的な場面や反対側の見方まで出てくるかどうか。この番組を聴くなら、どんな問いが残るかに注目したいですね。"),
+    ]
+
+
+def build_opening(date: dt.date) -> list[tuple[str, str]]:
+    return [
+        ("a", f"早上好。{date_intro(date)}{weather_intro()}"),
+        ("b", "今天我们继续做一档中英日混合的播客晨间听单。每种语言只选三个节目，不追求信息堆满，而是把它们当作话题入口，聊聊它们背后真正值得想的东西。"),
     ]
 
 
 def build_dialogue(lang: str, items: list[dict]) -> list[tuple[str, str]]:
     if lang == "en":
         lines = [
-            ("a", "Welcome to the English section. Today we are choosing only three podcasts, so we can slow down and actually discuss them."),
-            ("b", "And just to be clear, we are using public Apple Podcasts metadata and public feed notes. This is a listening guide, not a replacement for the original shows."),
+            ("a", "Let's move into the English section. Three podcasts, three topics, and a little room to think around them."),
+            ("b", "Good. Less catalog, more conversation. We are using public Apple Podcasts and feed information, then adding our own reading of why the topic matters."),
         ]
     elif lang == "zh":
         lines = [
-            ("a", "现在进入中文部分。今天每种语言只选三个节目，我们不再报菜名，而是认真聊一聊它们为什么值得听。"),
-            ("b", "先说明一下：这里依据的是 Apple Podcasts 公开元数据和公开 RSS 信息，不复述长段原节目内容，只做收听指南和观点延展。"),
+            ("a", "现在进入中文部分。三个节目，三个话题，我们尽量聊得像朋友早上坐下来交换判断。"),
+            ("b", "对，不做资料朗读。我们会说它大概讨论什么，再顺着这个话题展开一点自己的看法。"),
         ]
     else:
         lines = [
-            ("a", "ここからは日本語セクションです。今日は三つの番組だけを選び、少し深く話していきます。"),
-            ("b", "Apple Podcasts と公開 RSS の情報をもとにした聞きどころの整理です。元の番組の代わりではありません。"),
+            ("a", "ここからは日本語セクションです。三つの番組を入り口にして、少し考えを広げていきます。"),
+            ("b", "番組の細かい情報を読むのではなく、そこで扱われているテーマをどう受け取れるかを話していきます。"),
         ]
     for index, item in enumerate(items, start=1):
         lines.extend(dialogue_for_item(lang, index, item))
@@ -291,11 +357,21 @@ async def synthesize(text: str, voice: str, output: Path) -> None:
 
 async def synthesize_dialogue(dialogue: list[tuple[str, str]], voices: dict, prefix: Path) -> list[Path]:
     parts = []
-    for index, (speaker, text) in enumerate(dialogue, start=1):
+    compacted = []
+    for speaker, text in dialogue:
+        if compacted and compacted[-1][0] == speaker:
+            compacted[-1] = (speaker, compacted[-1][1] + "\n" + text)
+        else:
+            compacted.append((speaker, text))
+    for index, (speaker, text) in enumerate(compacted, start=1):
         part = prefix.with_name(f"{prefix.name}-{index:02d}-{speaker}.mp3")
         await synthesize(text, voices[speaker], part)
         parts.append(part)
     return parts
+
+
+def run_checked(args: list[str]) -> None:
+    subprocess.run(args, check=True, cwd=ROOT)
 
 
 def concat_mp3(parts: list[Path], output: Path) -> None:
@@ -303,6 +379,56 @@ def concat_mp3(parts: list[Path], output: Path) -> None:
     with output.open("wb") as out:
         for part in parts:
             out.write(part.read_bytes())
+
+
+def cleanup_partial_files(date: dt.date) -> None:
+    for path in EPISODES_DIR.glob(f"{date.isoformat()}-*.mp3"):
+        path.unlink(missing_ok=True)
+
+
+def add_background_music(speech_path: Path, output_path: Path) -> None:
+    if not shutil.which("ffmpeg") or not shutil.which("ffprobe"):
+        if speech_path != output_path:
+            output_path.write_bytes(speech_path.read_bytes())
+        return
+
+    probe = subprocess.run(
+        [
+            "ffprobe",
+            "-v",
+            "error",
+            "-show_entries",
+            "format=duration",
+            "-of",
+            "default=noprint_wrappers=1:nokey=1",
+            str(speech_path),
+        ],
+        check=True,
+        capture_output=True,
+        text=True,
+        cwd=ROOT,
+    )
+    duration = max(float(probe.stdout.strip()), 1.0)
+    music_filter = (
+        f"sine=frequency=174:duration={duration}:sample_rate=24000,"
+        "volume=0.018,afade=t=in:st=0:d=3,"
+        f"afade=t=out:st={max(duration - 4, 0)}:d=4[m]"
+    )
+    run_checked(
+        [
+            "ffmpeg",
+            "-y",
+            "-i",
+            str(speech_path),
+            "-filter_complex",
+            music_filter + ";[0:a]volume=1.0[v];[v][m]amix=inputs=2:duration=first:dropout_transition=2",
+            "-codec:a",
+            "libmp3lame",
+            "-b:a",
+            "96k",
+            str(output_path),
+        ]
+    )
 
 
 def write_index(date: dt.date, episode_file: str, sources: dict) -> None:
@@ -341,7 +467,7 @@ def write_index(date: dt.date, episode_file: str, sources: dict) -> None:
   <body>
     <main>
       <h1>Daily Podcast</h1>
-      <p>最新一期：{date.isoformat()}。中英日多语言 Apple Podcasts 公开榜单音频摘要。音频由 AI 生成。</p>
+      <p>最新一期：{date.isoformat()}。中英日三语播客晨间对谈，每种语言精选 3 个节目，音频由 AI 生成。</p>
       <audio controls src="{html.escape(episode_file)}"></audio>
       <p><a href="{html.escape(episode_file)}">打开音频文件</a></p>
       <h2>本期来源</h2>
@@ -380,6 +506,7 @@ async def main() -> None:
     date = today_shanghai()
     EPISODES_DIR.mkdir(exist_ok=True)
     DATA_DIR.mkdir(exist_ok=True)
+    cleanup_partial_files(date)
 
     sources: dict[str, list[dict]] = {}
     for lang, config in CHARTS.items():
@@ -393,16 +520,20 @@ async def main() -> None:
         sources[lang] = trim_and_enrich(sources[lang])
 
     parts = []
+    parts.extend(await synthesize_dialogue(build_opening(date), VOICES["zh"], EPISODES_DIR / f"{date.isoformat()}-opening"))
     for lang in ("en", "zh", "ja"):
         dialogue = build_dialogue(lang, sources[lang])
         parts.extend(await synthesize_dialogue(dialogue, VOICES[lang], EPISODES_DIR / f"{date.isoformat()}-{lang}"))
 
     episode_name = f"{date.isoformat()}.mp3"
     episode_path = EPISODES_DIR / episode_name
-    concat_mp3(parts, episode_path)
+    speech_path = EPISODES_DIR / f"{date.isoformat()}-speech.mp3"
+    concat_mp3(parts, speech_path)
+    add_background_music(speech_path, episode_path)
 
     for part in parts:
         part.unlink(missing_ok=True)
+    speech_path.unlink(missing_ok=True)
 
     episode_file = f"episodes/{episode_name}"
     write_index(date, episode_file, sources)
