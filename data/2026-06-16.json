@@ -1,169 +1,63 @@
 {
   "date": "2026-06-16",
   "episode": "https://jianjianpanpan.github.io/dailypodcast/episodes/2026-06-16.mp3",
-  "sources": {
-    "en": [
-      {
-        "name": "The Mel Robbins Podcast",
-        "artist": "Mel Robbins",
-        "url": "https://podcasts.apple.com/us/podcast/the-mel-robbins-podcast/id1646101002?uo=4",
-        "summary": "Self-Improvement",
-        "releaseDate": "2026-06-15T04:05:00Z",
-        "genres": [
-          "Self-Improvement",
-          "Podcasts",
-          "Education",
-          "Health & Fitness",
-          "Mental Health"
-        ],
-        "feedUrl": "https://feeds.simplecast.com/UCwaTX1J",
-        "sourceMode": "itunes-search",
-        "latestEpisodeTitle": "7 Things to Tell Yourself Every Night for More Happiness and Positivity",
-        "latestEpisodeSummary": "This episode gives you a reset you can use tonight. In today’s solo episode, Mel shows you how to end your day right, with 7 simple sentences that reset your mindset and rewire...",
-        "latestEpisodeDate": "Mon, 15 Jun 2026 04:05:00 +0000"
-      },
-      {
-        "name": "The NPR Politics Podcast",
-        "artist": "NPR",
-        "url": "https://podcasts.apple.com/us/podcast/the-npr-politics-podcast/id1057255460?uo=4",
-        "summary": "Politics",
-        "releaseDate": "2026-06-12T20:38:00Z",
-        "genres": [
-          "Politics",
-          "Podcasts",
-          "News",
-          "Daily News"
-        ],
-        "feedUrl": "https://feeds.npr.org/510310/podcast.xml",
-        "sourceMode": "itunes-search",
-        "latestEpisodeTitle": "What to make of Trump’s mixed-messages on the Iran war",
-        "latestEpisodeSummary": "President Trump sent a lot of mixed messages on the war in Iran this week, starting with imminent peace on Monday, threatening to take control of Kharg Island on Thursday,...",
-        "latestEpisodeDate": "Fri, 12 Jun 2026 20:38:32 +0000"
-      },
-      {
-        "name": "This Podcast Will Kill You",
-        "artist": "Exactly Right and iHeartPodcasts",
-        "url": "https://podcasts.apple.com/us/podcast/this-podcast-will-kill-you/id1299915173?uo=4",
-        "summary": "Science",
-        "releaseDate": "2026-06-02T07:01:00Z",
-        "genres": [
-          "Science",
-          "Podcasts",
-          "Health & Fitness"
-        ],
-        "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/e0709a39-232b-4483-8e4f-b24c0111ae2c/64b4c224-562e-4b2f-9f31-b24c0111ae53/podcast.rss",
-        "sourceMode": "itunes-search",
-        "latestEpisodeTitle": "Ep 212 Burns Part 1: The first million or so years",
-        "latestEpisodeSummary": "Burns have been a part of the human experience since our hominin relatives began controlling fire 1.5 million years ago. Until very recently, we’ve been limited in our ability to...",
-        "latestEpisodeDate": "Tue, 09 Jun 2026 07:01:00 +0000"
-      }
-    ],
-    "zh": [
-      {
-        "name": "长点脑子",
-        "artist": "长点脑子播客",
-        "url": "https://podcasts.apple.com/cn/podcast/%E9%95%BF%E7%82%B9%E8%84%91%E5%AD%90/id1678433283?uo=4",
-        "summary": "节目漫谈",
-        "releaseDate": "2026-05-26T05:41:00Z",
-        "genres": [
-          "节目漫谈",
-          "播客",
-          "电视与电影",
-          "艺术",
-          "图书"
-        ],
-        "feedUrl": "https://www.ximalaya.com/album/75057160.xml",
-        "sourceMode": "itunes-search",
-        "latestEpisodeTitle": "油炸绿番茄：心会碎，但依然会跳动",
-        "latestEpisodeSummary": "长点脑子重启更新啦！友友们久等了。 今天我们来聊《油炸绿番茄》。这部电影刻画了出离传统的女性和被世俗禁锢的女性，也展现了女性活出自我的心理过程与积极行动。 电影当中有四位女性，其中两位更年长一些的叫做艾姬和露丝，她们生活在美国一战二战左右的时间，也是黑人解放运动之前，片中也出现了很多白人和黑人奴隶一起生活的场景。...",
-        "latestEpisodeDate": "Tue, 26 May 2026 05:41:24 GMT"
-      },
-      {
-        "name": "大俗小雅",
-        "artist": "大俗小雅播客",
-        "url": "https://podcasts.apple.com/cn/podcast/%E5%A4%A7%E4%BF%97%E5%B0%8F%E9%9B%85/id1541026151?uo=4",
-        "summary": "爱好",
-        "releaseDate": "2026-06-02T23:00:00Z",
-        "genres": [
-          "爱好",
-          "播客",
-          "休闲",
-          "社会与文化",
-          "情感与人际关系"
-        ],
-        "feedUrl": "http://www.ximalaya.com/album/43880787.xml",
-        "sourceMode": "itunes-search",
-        "latestEpisodeTitle": "284 迷恋夏天：樱桃西瓜，森林山庄，晚风球场和多巴胺的一切",
-        "latestEpisodeSummary": "夏天不是季节，是一连串被唤醒的感官。 西瓜、骤雨、球场、晚风，和一点点重新开始的勇气。 这一期，我们想把夏天变成一种可以被听见、闻见、尝见的东西。 从西瓜芯芯翻砂的声音，到大雨前夕泥土、青草与水汽混合的气味；从盒马水果列表里的香蒲桃、龙宫果、甜心脆青提，到屋顶日落、气泡酒、绿色天丝床品和夏日晚风。夏天不是一个季节，而是一种感官被重新打开的状态。...",
-        "latestEpisodeDate": "Tue, 09 Jun 2026 23:00:00 GMT"
-      },
-      {
-        "name": "【英语播客】Yeah, Why Not",
-        "artist": "是Ling也是凌",
-        "url": "https://podcasts.apple.com/cn/podcast/%E8%8B%B1%E8%AF%AD%E6%92%AD%E5%AE%A2-yeah-why-not/id1599483558?uo=4",
-        "summary": "个人日记",
-        "releaseDate": "2026-04-15T12:02:00Z",
-        "genres": [
-          "个人日记",
-          "播客",
-          "社会与文化",
-          "情感与人际关系"
-        ],
-        "feedUrl": "http://www.ximalaya.com/album/53253747.xml",
-        "sourceMode": "itunes-search",
-        "latestEpisodeTitle": "Vol.47 | Too Subtle for Our Own Good",
-        "latestEpisodeSummary": "想加入YWN播客社群的小伙伴们可以加我的vx：Yeah_WhyNot，我邀请进群哦~我会在群里分享每一期的节目文稿，以及每周正在进行的口语俱乐部相关活动的信息 这一期想聊一个我觉得很多人都会默默经历的问题：我们总希望被理解，却又不太会直接表达自己。关于关系、沟通，还有很多藏在情绪里的疲惫感。",
-        "latestEpisodeDate": "Tue, 12 May 2026 08:31:30 GMT"
-      }
-    ],
-    "ja": [
-      {
-        "name": "ポッドキャストを初めて聴いて「いいな」と思ったお姉さんがまさか元セクシー女優の矢埜",
-        "artist": "TBS RADIO",
-        "url": "https://podcasts.apple.com/jp/podcast/%E3%83%9D%E3%83%83%E3%83%89%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%88%E3%82%92%E5%88%9D%E3%82%81%E3%81%A6%E8%81%B4%E3%81%84%E3%81%A6-%E3%81%84%E3%81%84%E3%81%AA-%E3%81%A8%E6%80%9D%E3%81%A3%E3%81%9F%E3%81%8A%E5%A7%89%E3%81%95%E3%82%93%E3%81%8C%E3%81%BE%E3%81%95%E3%81%8B%E5%85%83%E3%82%BB%E3%82%AF%E3%82%B7%E3%83%BC%E5%A5%B3%E5%84%AA%E3%81%AE%E7%9F%A2%E5%9F%9C/id1767294111?uo=4",
-        "summary": "健康／フィットネス",
-        "releaseDate": "2026-06-05T11:00:00Z",
-        "genres": [
-          "健康／フィットネス",
-          "ポッドキャスト"
-        ],
-        "feedUrl": "https://feeds.megaphone.fm/TBS1444818315",
-        "sourceMode": "itunes-search",
-        "latestEpisodeTitle": "#92 男性の色気はどこから？",
-        "latestEpisodeSummary": "OPは、台風のなか奄美大島でお仕事してきたお話から！ コーナーは『愛茉が全部教えてあげる』！今回は「色気のある男性になりたい！」という方からの質問です。 Learn more about your ad choices. Visit podcastchoices.com/adchoices",
-        "latestEpisodeDate": "Fri, 12 Jun 2026 11:00:00 -0000"
-      },
-      {
-        "name": "誰でもできる！ポッドキャストの作り方",
-        "artist": "でんすけ@音声メディアプロデューサー",
-        "url": "https://podcasts.apple.com/jp/podcast/%E8%AA%B0%E3%81%A7%E3%82%82%E3%81%A7%E3%81%8D%E3%82%8B-%E3%83%9D%E3%83%83%E3%83%89%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%88%E3%81%AE%E4%BD%9C%E3%82%8A%E6%96%B9/id1699924537?uo=4",
-        "summary": "マーケティング",
-        "releaseDate": "2024-12-29T01:51:00Z",
-        "genres": [
-          "マーケティング",
-          "ポッドキャスト",
-          "ビジネス"
-        ],
-        "feedUrl": "https://anchor.fm/s/fde71fc8/podcast/rss",
-        "sourceMode": "itunes-search"
-      },
-      {
-        "name": "ポッドキャストのはじめ方",
-        "artist": "ハタモト",
-        "url": "https://podcasts.apple.com/jp/podcast/%E3%83%9D%E3%83%83%E3%83%89%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%88%E3%81%AE%E3%81%AF%E3%81%98%E3%82%81%E6%96%B9/id1572698527?uo=4",
-        "summary": "テクノロジー",
-        "releaseDate": "2023-08-07T23:49:00Z",
-        "genres": [
-          "テクノロジー",
-          "ポッドキャスト"
-        ],
-        "feedUrl": "https://anchor.fm/s/5fd050d4/podcast/rss",
-        "sourceMode": "itunes-search",
-        "latestEpisodeTitle": "新しいポッドキャストの始め方【VideoCast】Anchorからの移行も簡単、国産ホスティングサービスLISTENなら複数番組を１か所で管理できる #31",
-        "latestEpisodeSummary": "複数のポッドキャスト番組を一括管理できるポッドキャストホスティングサービスLISTENに移行する引っ越しツールについて映像付きで解説。 映像は https://open.spotify.com/episode/7z5fNweVMappFRovvP4rtb?si=3Qji4lEVSLChT4nsr4kIMQ...",
-        "latestEpisodeDate": "Mon, 07 Aug 2023 23:49:41 GMT"
-      }
-    ]
-  },
-  "note": "Sources are Apple Podcasts public chart metadata where available; fallback entries are marked by their generic Apple chart URLs."
+  "items": [
+    {
+      "source": "The New York Times",
+      "lang": "en",
+      "title": "The Iran War Permanently Altered the Global Economy",
+      "url": "https://www.nytimes.com/2026/06/16/business/economy/iran-war-oil-trade.html",
+      "summary": "The global order has been altered, and economies are unlikely to simply pick up where they left off before the U.S. and Israel began bombing Iran.",
+      "published": "Tue, 16 Jun 2026 09:01:06 +0000"
+    },
+    {
+      "source": "The New York Times",
+      "lang": "en",
+      "title": "Iran Will Enter Nuclear Talks Feeling Emboldened",
+      "url": "https://www.nytimes.com/2026/06/16/world/middleeast/iran-us-deal-nuclear-talks.html",
+      "summary": "Despite military setbacks during the war, Tehran is presenting a narrative of victory before negotiations with Washington.",
+      "published": "Tue, 16 Jun 2026 12:05:04 +0000"
+    },
+    {
+      "source": "联合早报",
+      "lang": "zh",
+      "title": "黄循财总理将赴俄罗斯出席亚细安—俄罗斯纪念峰会",
+      "url": "https://www.zaobao.com.sg/news/singapore/story20260616-9205240?ref=today-news-section-card-1",
+      "summary": "联合早报首页公开标题。",
+      "published": ""
+    },
+    {
+      "source": "联合早报",
+      "lang": "zh",
+      "title": "榴梿挂满枝 居民树下等 罗弄榴梿迎丰收奇景",
+      "url": "https://www.zaobao.com.sg/news/singapore/story20260616-9210635?ref=today-news-section-card-2",
+      "summary": "联合早报首页公开标题。",
+      "published": ""
+    },
+    {
+      "source": "微博热搜",
+      "lang": "zh",
+      "title": "现在知道短剧滤镜有多吓人了吧",
+      "url": "https://s.weibo.com/weibo?q=%23%E7%8E%B0%E5%9C%A8%E7%9F%A5%E9%81%93%E7%9F%AD%E5%89%A7%E6%BB%A4%E9%95%9C%E6%9C%89%E5%A4%9A%E5%90%93%E4%BA%BA%E4%BA%86%E5%90%A7%23",
+      "summary": "剧集",
+      "published": ""
+    },
+    {
+      "source": "Yahoo!ニュース",
+      "lang": "ja",
+      "title": "日米首脳 G7会場で短時間懇談",
+      "url": "https://news.yahoo.co.jp/pickup/6584494?source=rss",
+      "summary": "",
+      "published": "Tue, 16 Jun 2026 10:07:12 GMT"
+    },
+    {
+      "source": "Yahoo!ニュース",
+      "lang": "ja",
+      "title": "大手3行 預金金利0.4%に引き上げ",
+      "url": "https://news.yahoo.co.jp/pickup/6584498?source=rss",
+      "summary": "",
+      "published": "Tue, 16 Jun 2026 10:41:59 GMT"
+    }
+  ],
+  "note": "Summaries are original podcast-style commentary based on public RSS, public headlines, and public hot-search metadata. No full articles are reproduced."
 }
