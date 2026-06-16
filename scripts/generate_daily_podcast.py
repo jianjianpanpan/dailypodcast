@@ -23,11 +23,10 @@ WUXI_LATITUDE = 31.4912
 WUXI_LONGITUDE = 120.3119
 CHINESE_WEEKDAYS = "一二三四五六日"
 
-VOICES = {
-    "opening": {"a": "zh-CN-YunxiNeural", "b": "zh-CN-XiaoxiaoNeural"},
-    "en": {"a": "en-US-BrianNeural", "b": "en-US-AvaNeural"},
-    "zh": {"a": "zh-CN-YunxiNeural", "b": "zh-CN-XiaoxiaoNeural"},
-    "ja": {"a": "ja-JP-KeitaNeural", "b": "ja-JP-NanamiNeural"},
+NARRATOR_VOICES = {
+    "en": "en-US-BrianNeural",
+    "zh": "zh-CN-YunxiNeural",
+    "ja": "ja-JP-KeitaNeural",
 }
 
 WEATHER_CODES_ZH = {
@@ -64,16 +63,22 @@ def date_intro(date: dt.date) -> str:
 
 
 def request_text(url: str, timeout: int = 20, accept: str = "*/*", referer: str = "https://www.google.com/") -> str:
-    req = urllib.request.Request(
-        url,
-        headers={
-            "User-Agent": "Mozilla/5.0 daily-news-podcast/1.0",
-            "Accept": accept,
-            "Referer": referer,
-        },
-    )
-    with urllib.request.urlopen(req, timeout=timeout) as response:
-        return response.read().decode("utf-8", "ignore")
+    last_error = None
+    for _ in range(3):
+        try:
+            req = urllib.request.Request(
+                url,
+                headers={
+                    "User-Agent": "Mozilla/5.0 daily-news-podcast/1.0",
+                    "Accept": accept,
+                    "Referer": referer,
+                },
+            )
+            with urllib.request.urlopen(req, timeout=timeout) as response:
+                return response.read().decode("utf-8", "ignore")
+        except Exception as exc:
+            last_error = exc
+    raise last_error
 
 
 def fetch_json(url: str, timeout: int = 20, referer: str = "https://www.google.com/") -> dict:
@@ -91,6 +96,14 @@ def brief(value: str, limit: int) -> str:
     if len(value) <= limit:
         return value
     return value[:limit].rstrip() + "..."
+
+
+def language_of(text: str) -> str:
+    if re.search(r"[\u3040-\u30ff]", text):
+        return "ja"
+    if re.search(r"[\u4e00-\u9fff]", text):
+        return "zh"
+    return "en"
 
 
 def absolute_url(base: str, href: str) -> str:
@@ -149,12 +162,24 @@ def parse_rss(url: str, source: str, lang: str, limit: int) -> list[dict]:
     return items
 
 
-def fetch_nyt() -> list[dict]:
-    return parse_rss("https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml", "The New York Times", "en", 2)
+def fetch_bbc() -> list[dict]:
+    return parse_rss("https://feeds.bbci.co.uk/news/world/rss.xml", "BBC News", "en", 8)
+
+
+def fetch_guardian() -> list[dict]:
+    return parse_rss("https://www.theguardian.com/world/rss", "The Guardian", "en", 8)
+
+
+def fetch_npr() -> list[dict]:
+    return parse_rss("https://feeds.npr.org/1001/rss.xml", "NPR", "en", 8)
 
 
 def fetch_yahoo_japan() -> list[dict]:
-    return parse_rss("https://news.yahoo.co.jp/rss/topics/top-picks.xml", "Yahoo!ニュース", "ja", 2)
+    return parse_rss("https://news.yahoo.co.jp/rss/topics/top-picks.xml", "Yahoo!ニュース", "ja", 8)
+
+
+def fetch_nhk() -> list[dict]:
+    return parse_rss("https://www3.nhk.or.jp/rss/news/cat0.xml", "NHK", "ja", 8)
 
 
 def fetch_zaobao() -> list[dict]:
@@ -182,154 +207,123 @@ def fetch_zaobao() -> list[dict]:
                 "published": "",
             }
         )
-        if len(items) >= 2:
+        if len(items) >= 8:
             break
     return items
 
 
-def fetch_weibo() -> list[dict]:
-    url = "https://weibo.com/ajax/side/hotSearch"
-    payload = fetch_json(url, timeout=20, referer="https://weibo.com/")
-    realtime = payload.get("data", {}).get("realtime", [])
-    for item in realtime:
-        if item.get("is_ad"):
+def extract_article_text(url: str) -> str:
+    page = request_text(url, timeout=18, accept="text/html,*/*")
+    page = re.sub(r"(?is)<(script|style|noscript|svg|form|header|footer|nav|aside).*?</\1>", " ", page)
+    paragraphs = []
+    for match in re.finditer(r"(?is)<p[^>]*>(.*?)</p>", page):
+        text = strip_markup(match.group(1))
+        if len(text) < 35:
             continue
-        word = strip_markup(item.get("word") or item.get("note") or "")
-        if not word:
+        lowered = text.lower()
+        if any(skip in lowered for skip in ["sign up", "cookie", "advertisement", "newsletter", "all rights reserved"]):
             continue
-        encoded = urllib.parse.quote(word)
-        return [
-            {
-                "source": "微博热搜",
-                "lang": "zh",
-                "title": word,
-                "url": f"https://s.weibo.com/weibo?q=%23{encoded}%23",
-                "summary": item.get("category") or item.get("flag_desc") or "微博公开热搜话题。",
-                "published": "",
-            }
-        ]
-    return []
+        paragraphs.append(text)
+    text = " ".join(paragraphs)
+    return re.sub(r"\s+", " ", text).strip()
 
 
-def fallback_news() -> list[dict]:
-    return [
-        {
-            "source": "The New York Times",
-            "lang": "en",
-            "title": "Global markets watch geopolitical risk",
-            "url": "https://www.nytimes.com/",
-            "summary": "A fallback item used when public feeds are temporarily unavailable.",
-            "published": "",
-        },
-        {
-            "source": "The New York Times",
-            "lang": "en",
-            "title": "Policy debates shape the international agenda",
-            "url": "https://www.nytimes.com/",
-            "summary": "A fallback item used when public feeds are temporarily unavailable.",
-            "published": "",
-        },
-        {
-            "source": "联合早报",
-            "lang": "zh",
-            "title": "亚洲区域新闻持续受到关注",
-            "url": "https://www.zaobao.com.sg/",
-            "summary": "公开首页暂时不可用时的备用条目。",
-            "published": "",
-        },
-        {
-            "source": "联合早报",
-            "lang": "zh",
-            "title": "财经与社会议题成为中文读者焦点",
-            "url": "https://www.zaobao.com.sg/",
-            "summary": "公开首页暂时不可用时的备用条目。",
-            "published": "",
-        },
-        {
-            "source": "微博热搜",
-            "lang": "zh",
-            "title": "微博热搜数据暂时不可用",
-            "url": "https://s.weibo.com/top/summary",
-            "summary": "微博接口不可用时的备用条目。",
-            "published": "",
-        },
-        {
-            "source": "Yahoo!ニュース",
-            "lang": "ja",
-            "title": "主要ニュースの更新を確認中",
-            "url": "https://news.yahoo.co.jp/",
-            "summary": "公開RSSが一時的に利用できない場合の予備項目です。",
-            "published": "",
-        },
-        {
-            "source": "Yahoo!ニュース",
-            "lang": "ja",
-            "title": "社会と経済の動きに注目",
-            "url": "https://news.yahoo.co.jp/",
-            "summary": "公開RSSが一時的に利用できない場合の予備項目です。",
-            "published": "",
-        },
-    ]
+def summarize_from_text(item: dict, article_text: str) -> str:
+    lang = item["lang"]
+    if lang == "zh":
+        chunks = re.split(r"(?<=[。！？])", article_text)
+        target = 300
+    elif lang == "ja":
+        chunks = re.split(r"(?<=[。！？])", article_text)
+        target = 260
+    else:
+        chunks = re.split(r"(?<=[.!?])\s+", article_text)
+        target = 520
+    picked = []
+    total = 0
+    for chunk in chunks:
+        chunk = chunk.strip()
+        if len(chunk) < 20:
+            continue
+        picked.append(chunk)
+        total += len(chunk)
+        if total >= target:
+            break
+    summary = " ".join(picked) if lang == "en" else "".join(picked)
+    return brief(summary, target + 80)
+
+
+def enrich_with_full_text(candidates: list[dict], limit: int = 7) -> list[dict]:
+    enriched = []
+    seen_urls = set()
+    for item in candidates:
+        if item["url"] in seen_urls:
+            continue
+        seen_urls.add(item["url"])
+        try:
+            article_text = extract_article_text(item["url"])
+        except Exception:
+            continue
+        min_len = 450 if item["lang"] == "en" else 220
+        if len(article_text) < min_len:
+            continue
+        item = dict(item)
+        item["articleTextLength"] = len(article_text)
+        item["summary"] = summarize_from_text(item, article_text)
+        enriched.append(item)
+        if len(enriched) >= limit:
+            break
+    return enriched
 
 
 def gather_news() -> list[dict]:
+    source_plan = [
+        (fetch_bbc, 1),
+        (fetch_guardian, 1),
+        (fetch_npr, 1),
+        (fetch_zaobao, 2),
+        (fetch_nhk, 1),
+        (fetch_yahoo_japan, 1),
+    ]
+    groups = []
     items = []
-    for fetcher in (fetch_nyt, fetch_zaobao, fetch_weibo, fetch_yahoo_japan):
+    for fetcher, quota in source_plan:
         try:
-            items.extend(fetcher())
+            group = fetcher()
+            groups.append(group)
+            items.extend(enrich_with_full_text(group, quota))
         except Exception as exc:
             print(f"Source failed: {fetcher.__name__}: {exc}")
-    fallback = fallback_news()
-    while len(items) < 7:
-        items.append(fallback[len(items)])
+
+    if len(items) < 7:
+        used = {item["url"] for item in items}
+        remaining = [item for group in groups for item in group if item["url"] not in used]
+        items.extend(enrich_with_full_text(remaining, 7 - len(items)))
+
+    if len(items) < 7:
+        raise RuntimeError(f"Only found {len(items)} readable full-text articles")
     return items[:7]
 
 
 def build_opening(date: dt.date) -> list[tuple[str, str]]:
     return [
-        ("a", f"早上好。{date_intro(date)}{weather_intro()}"),
-        ("b", "今天的节目改成新闻晨报。我们浏览纽约时报、联合早报、微博热搜和 Yahoo Japan 的公开信息，选七条热点新闻，用播客对谈的方式讲清楚它们为什么重要。"),
+        ("zh", f"早上好。{date_intro(date)}{weather_intro()}"),
     ]
 
 
-def english_dialogue(index: int, item: dict) -> list[tuple[str, str]]:
-    title = item["title"]
-    summary = item.get("summary") or "The public feed gives only a headline."
-    return [
-        ("a", f"Story {index}: {title}. The public summary says: {summary}"),
-        ("b", "The core issue is not just what happened, but what changes if this story keeps developing. I would watch who gains room to move, who loses leverage, and what ordinary people will feel first. That is how a headline turns into a real signal."),
-    ]
-
-
-def chinese_dialogue(index: int, item: dict) -> list[tuple[str, str]]:
-    title = item["title"]
-    summary = item.get("summary") or "公开信息主要来自标题和热度线索。"
-    return [
-        ("a", f"第 {index} 条，{title}。公开线索显示：{summary}"),
-        ("b", "这条新闻值得听，不只是因为它热，而是因为它背后有一个更大的问题：公众在关心什么、制度在回应什么，或者市场正在重新定价什么。今天先别把它看成孤立事件，后续要看相关方会不会改变行动，以及普通人会不会真的感受到影响。"),
-    ]
-
-
-def japanese_dialogue(index: int, item: dict) -> list[tuple[str, str]]:
-    title = item["title"]
-    summary = item.get("summary") or "公開RSSでは見出しが中心です。"
-    return [
-        ("a", f"{index} 本目のニュースです。「{title}」。公開情報では、{summary}"),
-        ("b", "大事なのは、出来事そのものだけではなく、それが社会のどこに波及するかです。政治、生活、企業行動のどれに影響するのかを見ると、ニュースの意味が立体的になります。結論を急がず、次の反応を追いたいですね。"),
-    ]
-
-
-def build_news_dialogue(items: list[dict]) -> list[tuple[str, str]]:
-    dialogue = []
+def build_news_script(items: list[dict]) -> list[tuple[str, str]]:
+    script = []
     for index, item in enumerate(items, start=1):
-        if item["lang"] == "en":
-            dialogue.extend(english_dialogue(index, item))
-        elif item["lang"] == "ja":
-            dialogue.extend(japanese_dialogue(index, item))
+        lang = item["lang"]
+        title = item["title"]
+        summary = item["summary"]
+        if lang == "zh":
+            script.append((lang, f"第 {index} 条，{title}。{summary}"))
+        elif lang == "ja":
+            script.append((lang, f"{index} 本目のニュースです。「{title}」。{summary}"))
         else:
-            dialogue.extend(chinese_dialogue(index, item))
-    dialogue.append(("a", "以上就是今天的七条新闻。我们明天早上继续，用更少的标题，讲更清楚的变化。"))
-    return dialogue
+            script.append((lang, f"Story {index}: {title}. {summary}"))
+    return script
 
 
 async def synthesize(text: str, voice: str, output: Path) -> None:
@@ -345,17 +339,12 @@ async def synthesize(text: str, voice: str, output: Path) -> None:
     raise last_error
 
 
-async def synthesize_dialogue(dialogue: list[tuple[str, str]], prefix: Path) -> list[Path]:
+async def synthesize_script(script: list[tuple[str, str]], prefix: Path) -> list[Path]:
     parts = []
-    for index, (speaker, text) in enumerate(dialogue, start=1):
-        if text and re.search(r"[\u3040-\u30ff]", text):
-            voices = VOICES["ja"]
-        elif text and re.search(r"[\u4e00-\u9fff]", text):
-            voices = VOICES["zh"]
-        else:
-            voices = VOICES["en"]
-        part = prefix.with_name(f"{prefix.name}-{index:02d}-{speaker}.mp3")
-        await synthesize(text, voices[speaker], part)
+    for index, (lang, text) in enumerate(script, start=1):
+        voice = NARRATOR_VOICES.get(lang, NARRATOR_VOICES[language_of(text)])
+        part = prefix.with_name(f"{prefix.name}-{index:02d}-{lang}.mp3")
+        await synthesize(text, voice, part)
         parts.append(part)
     return parts
 
@@ -485,7 +474,7 @@ def write_metadata(date: dt.date, episode_file: str, items: list[dict]) -> None:
                 "date": date.isoformat(),
                 "episode": f"{SITE_URL}/{episode_file}",
                 "items": items,
-                "note": "Summaries are original podcast-style commentary based on public RSS, public headlines, and public hot-search metadata. No full articles are reproduced.",
+            "note": "Each selected item must have a readable article body. Summaries are short extractive overviews based on accessible article text; full articles are not reproduced.",
             },
             ensure_ascii=False,
             indent=2,
@@ -501,8 +490,8 @@ async def main() -> None:
     cleanup_partial_files(date)
 
     items = gather_news()
-    dialogue = build_opening(date) + build_news_dialogue(items)
-    parts = await synthesize_dialogue(dialogue, EPISODES_DIR / f"{date.isoformat()}-news")
+    script = build_opening(date) + build_news_script(items)
+    parts = await synthesize_script(script, EPISODES_DIR / f"{date.isoformat()}-news")
 
     episode_name = f"{date.isoformat()}.mp3"
     episode_path = EPISODES_DIR / episode_name
